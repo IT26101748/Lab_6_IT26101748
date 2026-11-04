@@ -1,33 +1,43 @@
 #include <stdio.h>
-#include <math.h>
 
-int BinaryToDecimalSum(int bin1,int bin2,int bin3)
+void instruct(void);
+int convertToDecimal(int bin1, int bin2, int bin3);
+
+int main(void)
 {
-        int dec;
-        dec = bin3*pow(2,2) + bin2*pow(2,1) +bin1*pow(2,0);
-        return dec;
+    int bin1, bin2, bin3;
+    int decimalValue;
+
+    instruct();
+
+    printf("Enter three binary bits (0 or 1):\n");
+    printf("Enter bin1: ");
+    scanf("%d", &bin1);
+    printf("Enter bin2: ");
+    scanf("%d", &bin2);
+    printf("Enter bin3: ");
+    scanf("%d", &bin3);
+
+    decimalValue = convertToDecimal(bin1, bin2, bin3);
+
+    printf("Output: %d\n", decimalValue);
+
+    return 0;
 }
 
-int main ()
+void instruct(void)
 {
-	int bin1,bin2,bin3,Q;
-	printf("Enter first binary value: ");
-	scanf("%d",&bin1);
-	printf("Enter second binary value: ");
-        scanf("%d",&bin2);
-	printf("Enter third binary value: ");
-        scanf("%d",&bin3);
-
-	Q = BinaryToDecimalSum(bin1,bin2,bin3);
-
-	printf("Sum of the decimal values of these binary values: %d\n",Q);
-
-	return 0;
+    printf("=================================================================================\n");
+    printf("||                            Binary to Decimal Converter                      ||\n");
+    printf("=================================================================================\n");
+    printf("This program converts a 3-bit binary number into its corresponding decimal value\n");
+    printf("================================================================================\n\n");
 }
 
-
-
-
-
-
+int convertToDecimal(int bin1, int bin2, int bin3)
+{
+    int dec;
+    dec = (bin3 * 4) + (bin2 * 2) + (bin1 * 1);
+    return dec;
+}
 
